@@ -1,2 +1,2 @@
 # Bachelorthesis
-The code used to analyse the results of my bachelor thesis.
+The code used to display and analyse the results of my bachelor thesis.
