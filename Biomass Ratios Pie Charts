@@ -1,0 +1,232 @@
+To display the average biomass ratios per bioassay pie charts were chosen. This code was written to calculate all necessary values and plot them. 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# OGH 2 Arrays
+C_OGH2_phyto_35 = np.array([np.mean([0.91,0.83,0.87]), np.mean([0,0,0,]), np.mean([2.36,1.73,1.53]),np.mean([0.11,0.53,0.2])])
+C_OGH2_phyto_35_std = [0.04, 0, 0.33, 0.21]
+
+N_OGH2_phyto_35 = np.array([np.mean([0.91, 1.13, 1.04]), np.mean([0, 0, 0]), np.mean([2, 1.9, 2.4]), np.mean([0.09, 0.28, 0.18])])
+N_OGH2_phyto_35_std = [0.07, 0, 0.22, 0.07]
+
+P_OGH2_phyto_35 = np.array([np.mean([0.27, 2.22, 3.59]), np.mean([0.13,0,0]), np.mean([0.44, 2.33, 4.41]), np.mean([0.24, 0, 0])])
+P_OGH2_phyto_35_std = [0.7, 0.05, 0.95, 0.08]
+
+NP_OGH2_phyto_35 = np.array([np.mean([2.85, 2.4, 2.63]), np.mean([0, 0, 0]), np.mean([3.22, 2.14, 3.07]), np.mean([0, 0.08, 0])])
+# gaNP_OGH2_phyto_35= NP_OGH2_phyto_35[0]
+# cyanNP_OGH2_phyto_35= NP_OGH2_phyto_35[1]
+# diatNP_OGH2_phyto_35 = NP_OGH2_phyto_35[2]
+# crypNP_OGH2_phyto_35 = NP_OGH2_phyto_35[3]
+
+NP_OGH2_phyto_35_std = [0.2, 0, 0.45, 0.03]
+
+# Lake Klostersee 
+Ckl304 = np.array([np.mean([0,0,0]),np.mean([0.31,0.32,0.34]),np.mean([0,0,0]),np.mean([0.1,0.09,0.12])])
+Ckl304_std = np.array([np.std([0, 0, 0]), np.std([0.31, 0.32, 0.34]), np.std([0, 0, 0]), np.std([0.1, 0.09, 0.12])])
+
+Nkl304 = np.array([np.mean([0,0,0]),np.mean([0.28,0.25,0.3]),np.mean([0,0,0]),np.mean([0.2,0.38,0.23])])
+Nkl304_std = np.array([np.std([0, 0, 0]), np.std([0.28, 0.25, 0.3]), np.std([0, 0, 0]), np.std([0.2, 0.38, 0.23])])
+
+Pkl304 = np.array([np.mean([0.88,0.56,0.74]), np.mean([0.18,0.22,0.24]),np.mean([0.78,0.18,0.17]),np.mean([0.05,0.3,0.37])])
+Pkl304_std = np.array([np.std([0.88, 0.56, 0.74]), np.std([0.18, 0.22, 0.24]), np.std([0.78, 0.18, 0.17]), np.std([0.05, 0.3, 0.37])])
+
+NPkl304 = np.array([np.mean([0.64,0.47,0.75]), np.mean([0.37,0.39,0.28]), np.mean([0.08,0.29,0.99]), np.mean([0.78,0,0.04])])
+NPkl304_std = np.array([np.std([0.64, 0.47, 0.75]), np.std([0.37, 0.39, 0.28]), np.std([0.08, 0.29, 0.99]), np.std([0.78, 0, 0.04])])
+
+#Lake Bansee
+cb304= np.array([np.mean([29.66,29.06,25.69]), np.mean([0,0,0.33]), np.mean([21.92,22.08,19.41]), np.mean([0,0,0])])
+cb304_std= np.array([np.std([29.66,29.06,25.69]), np.std([0,0,0.33]), np.std([21.92,22.08,19.41]), np.std([0,0,0])])
+
+nb304= np.array([np.mean([29.73,27.23,25.23]), np.mean([0,0,0]), np.mean([21.57,20.48,19.84]), np.mean([0,0,0])])
+nb304_std= np.array([np.std([29.73,27.23,25.23]), np.std([0,0,0]), np.std([21.57,20.48,19.84]), np.std([0,0,0])])
+
+pb304= np.array([np.mean([35.95,39.58,26.77]), np.mean([1.1,0.28,0.71]), np.mean([28.89,28.66,26.64]), np.mean([0.68,0,0.33])])
+pb304_std= np.array([np.std([35.95,39.58,26.77]), np.std([1.1,0.28,0.71]), np.std([28.89,28.66,26.64]), np.std([0.68,0,0.33])])
+
+npb304= np.array([np.mean([40.16,44.55,41.56]), np.mean([1.31,0.6,1.35]), np.mean([28.66,27,27.6]), np.mean([1.44,0,0])])
+npb304_std= np.array([np.std([40.16,44.55,41.56]), np.std([1.31,0.6,1.35]), np.std([28.66,27,27.6]), np.std([1.44,0,0])])
+
+#Lake Brunnsee
+cbr304 = np.array([np.mean([0.7,0.81,0.84]), np.mean([0,0,0]), np.mean([4.08,4.14,3.69]), np.mean([0.23,0.48,0.36])])
+cbr304_std = np.array([np.std([0.7,0.81,0.84]), np.std([0,0,0]), np.std([4.08,4.14,3.69]), np.std([0.23,0.48,0.36])])
+
+nbr304 = np.array([np.mean([0.33,0.74,1]), np.mean([0,0,0]), np.mean([3.38,3.94,4.12]), np.mean([0.58,0.48,0.21])])
+nbr304_std = np.array([np.std([0.33,0.74,1]), np.std([0,0,0]), np.std([3.38,3.94,4.12]), np.std([0.58,0.48,0.21])])
+
+pbr304 = np.array([np.mean([1.87,1.96,1.84]), np.mean([0,0,0]), np.mean([5.44,5.63,5.29]), np.mean([0,0,0])])
+pbr304_std = np.array([np.std([1.87,1.96,1.84]), np.std([0,0,0]), np.std([5.44,5.63,5.29]), np.std([0,0,0])])
+
+npbr304 = np.array([np.mean([1.55,1.63,1.84]), np.mean([0,0,0]), np.mean([5.41,5.78,5.49]), np.mean([0.07,0,0])])
+npbr304_std = np.array([np.std([1.55,1.63,1.84]), np.std([0,0,0]), np.std([5.41,5.78,5.49]), np.std([0.07,0,0])])
+
+# Define the groups and colors
+groups = ["Chlorophyta", "Cyanobacteria", "Diatoms", "Cryptophyta"]
+colors = ['yellowgreen', 'gold', "lightskyblue", "#2E9500"]
+labels = ["Control", "N", "P", "NP"]
+
+print(cb304)
+
+#function to display the values inside the pie plot
+def format_autotext(pct, allvals, std_devs, index):
+    return f'{pct:.1f}%\n{allvals[index]:.2f}±{std_devs[index]:.2f}' if allvals[index] != 0 else ''
+```
+Plotting 
+OGH2: 
+fig, axs = plt.subplots(2, 3, figsize=(16, 12))
+fig.suptitle('OGH 2', fontsize=25)
+
+# Titles for the pie charts
+titles = ['C', 'N', 'P', 'NP']
+
+# Data and standard deviations
+datasets = [C_OGH2_phyto_35, N_OGH2_phyto_35, P_OGH2_phyto_35, NP_OGH2_phyto_35]
+std_devs = [C_OGH2_phyto_35_std, N_OGH2_phyto_35_std, P_OGH2_phyto_35_std, NP_OGH2_phyto_35_std]
+positions = [(0, 1), (1, 0), (1, 1), (1, 2)]
+
+# Loop through datasets and plot each pie chart
+for idx, (data, std, pos) in enumerate(zip(datasets, std_devs, positions)):
+    wedges, texts, autotexts = axs[pos].pie(
+        data, 
+        autopct='%1.1f%%',
+        startangle=90, 
+        colors=colors, 
+        textprops={'fontsize': 20}
+    )
+    for i, (w, txt) in enumerate(zip(wedges, autotexts)):
+        pct = 100. * (w.theta2 - w.theta1) / 360.
+        txt.set_text(format_autotext(pct, data, std, i))
+        if groups[i] == "Cryptophyta":
+            txt.set_position((txt.get_position()[0], txt.get_position()[1] + 0.1))
+
+    axs[pos].set_title(titles[idx], fontsize=20)
+
+# Turn off the remaining empty axes
+axs[0, 0].axis('off')
+axs[0, 2].axis('off')
+
+# Adding the legend once
+fig.legend(wedges, groups, title="Groups", loc="center left", bbox_to_anchor=(1, 0.5), fontsize=16)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.show()
+```
+Bansee: 
+```python
+#Bansee
+fig, axs = plt.subplots(2, 3, figsize=(16, 12))
+fig.suptitle('Lake Bansee', fontsize=25)
+
+# Titles for the pie charts
+titles = ['C', 'N', 'P', 'NP']
+
+# Data and standard deviations
+datasets = [cb304,nb304,pb304, npb304]
+std_devs = [cb304_std,nb304_std,pb304_std,npb304_std]
+positions = [(0, 1), (1, 0), (1, 1), (1, 2)]
+
+# Loop through datasets and plot each pie chart
+for idx, (data, std, pos) in enumerate(zip(datasets, std_devs, positions)):
+    wedges, texts, autotexts = axs[pos].pie(
+        data, 
+        autopct='%1.1f%%',
+        startangle=90, 
+        colors=colors, 
+        textprops={'fontsize': 20}
+    )
+    for i, (w, txt) in enumerate(zip(wedges, autotexts)):
+        pct = 100. * (w.theta2 - w.theta1) / 360.
+        txt.set_text(format_autotext(pct, data, std, i))
+    axs[pos].set_title(titles[idx], fontsize=20)
+
+# Turn off the remaining empty axes
+axs[0, 0].axis('off')
+axs[0, 2].axis('off')
+
+# Adding the legend once
+fig.legend(wedges, groups, title="Groups", loc="center left", bbox_to_anchor=(1, 0.5), fontsize=16)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.show()
+```
+Brunnsee: 
+```python
+#Brunnsee
+fig, axs = plt.subplots(2, 3, figsize=(16, 12))
+fig.suptitle('Lake Brunnsee', fontsize=25)
+
+# Titles for the pie charts
+titles = ['C', 'N', 'P', 'NP']
+
+# Data and standard deviations
+datasets = [cbr304,nbr304,pbr304,npbr304]
+std_devs = [cbr304_std,nbr304_std,pbr304_std,npbr304_std]
+positions = [(0, 1), (1, 0), (1, 1), (1, 2)]
+
+# Loop through datasets and plot each pie chart
+for idx, (data, std, pos) in enumerate(zip(datasets, std_devs, positions)):
+    wedges, texts, autotexts = axs[pos].pie(
+        data, 
+        autopct=lambda pct: format_autotext(pct, data, std, int(np.round(pct * len(data) / 100.0))),
+        startangle=90, 
+        colors=colors, 
+        textprops={'fontsize': 20}
+    )
+    for i, (w, txt) in enumerate(zip(wedges, autotexts)):
+        pct = 100. * (w.theta2 - w.theta1) / 360.
+        txt.set_text(format_autotext(pct, data, std, i))
+        
+        # Adjust position for Cryptophyta
+        if groups[i] == "Cryptophyta":
+            txt.set_position((txt.get_position()[0], txt.get_position()[1] + 0.25))
+    
+    axs[pos].set_title(titles[idx], fontsize=20)
+
+# Turn off the remaining empty axes
+axs[0, 0].axis('off')
+axs[0, 2].axis('off')
+
+# Adding the legend once
+fig.legend(wedges, groups, title="Groups", loc="center left", bbox_to_anchor=(1, 0.5), fontsize=16)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+
+plt.show()
+```
+Klostersee:
+```
+fig, axs = plt.subplots(2, 3, figsize=(16, 12))
+fig.suptitle('Lake Klostersee', fontsize=25)
+
+# Titles for the pie charts
+titles = ['C', 'N', 'P', 'NP']
+
+# Data and standard deviations
+datasets = [Ckl304,Nkl304,Pkl304,NPkl304]
+std_devs = [Ckl304_std,Nkl304_std,Pkl304_std,NPkl304_std]
+positions = [(0, 1), (1, 0), (1, 1), (1, 2)]
+
+# Loop through datasets and plot each pie chart
+for idx, (data, std, pos) in enumerate(zip(datasets, std_devs, positions)):
+    wedges, texts, autotexts = axs[pos].pie(
+        data, 
+        autopct='%1.1f%%',
+        startangle=90, 
+        colors=colors, 
+        textprops={'fontsize': 20}
+    )
+    for i, (w, txt) in enumerate(zip(wedges, autotexts)):
+        pct = 100. * (w.theta2 - w.theta1) / 360.
+        txt.set_text(format_autotext(pct, data, std, i))
+    axs[pos].set_title(titles[idx], fontsize=20)
+
+# Turn off the remaining empty axes
+axs[0, 0].axis('off')
+axs[0, 2].axis('off')
+
+# Adding the legend once
+fig.legend(wedges, groups, title="Groups", loc="center left", bbox_to_anchor=(1, 0.5), fontsize=16)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.show()
+```
